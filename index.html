@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bowling Centre in Virtual Reality</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>   
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    
+    <script src="shoot.js"></script>
+
+  </head>
+  <body>
+    <a-scene id="scene">
+
+      <!--Assets-->
+      <a-assets>
+        <a-asset-item id="pin" src="models/bowling_pin/scene.gltf"></a-asset-item>
+      </a-assets>
+      
+      <!--Light-->
+      <a-entity light="type: ambient; color: white; intensity:0.5"></a-entity>
+
+      <!--Camera and Cursor-->
+      <a-entity
+        id="camera"
+        camera
+        position="0 1.6 0"
+        wasd-controls
+        look-controls="pointerLockEnabled: true">
+        <a-cursor></a-cursor>        
+      </a-entity>
+
+      <!--Bowls-->
+      <a-entity bowl></a-entity>
+
+      <!--Ground-->
+      <a-plane
+        id="ground"
+        repeat="5 5"
+        position="0 1 0"
+        rotation="-90 0 0"
+        height="200"
+        width="200"
+        color="green"
+        static-body
+        visible="true"
+      >
+      </a-plane>
+
+      <!--Pins-->
+      <a-entity id="pin1" gltf-model="#pin" position="0 1.6 -6" scale="0.3 0.3 0.3" dynamic-body></a-entity> 
+
+      <a-entity id="pin2" gltf-model="#pin" position="-0.5 1.6 -8" scale="0.3 0.3 0.3" dynamic-body></a-entity> 
+
+      <a-entity id="pin3" gltf-model="#pin" position="0.5 1.6 -8" scale="0.3 0.3 0.3" dynamic-body></a-entity> 
+
+      <a-entity id="pin4" gltf-model="#pin" position="1 1.6 -10" scale="0.3 0.3 0.3" dynamic-body></a-entity> 
+
+      <a-entity id="pin5" gltf-model="#pin" position="0 1.6 -10" scale="0.3 0.3 0.3" dynamic-body></a-entity> 
+
+      <a-entity id="pin6" gltf-model="#pin" position="-1 1.6 -10" scale="0.3 0.3 0.3" dynamic-body></a-entity> 
+
+      <a-entity id="pin7" gltf-model="#pin" position="-1.5 1.6 -12" scale="0.3 0.3 0.3" dynamic-body></a-entity> 
+
+      <a-entity id="pin8" gltf-model="#pin" position="-0.5 1.6 -12" scale="0.3 0.3 0.3" dynamic-body></a-entity> 
+
+      <a-entity id="pin9" gltf-model="#pin" position="0.5 1.6 -12" scale="0.3 0.3 0.3" dynamic-body></a-entity> 
+
+      <a-entity id="pin10" gltf-model="#pin" position="1.5 1.6 -12" scale="0.3 0.3 0.3" dynamic-body></a-entity> 
+
+      <!--Walls-->
+      <a-box color="red" id="wall1" position="0 1.5 -14" depth="1" height="10" width="10"></a-box>
+
+      <a-box color="blue" id="wall2" position="4 1.5 -10" rotation="0 90 0" depth="0.1" height="1" width="15" static-body></a-box>
+
+      <a-box color="blue" id="wall3" position="-4 1.5 -10" rotation="0 90 0" depth="0.1" height="1" width="15" static-body></a-box>
+    </a-scene>
+  </body>
+</html>
